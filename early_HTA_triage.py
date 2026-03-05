@@ -259,8 +259,8 @@ This is an **early HTA triage** check for med-tech, diagnostics, service innovat
 Score the 10 workstreams from Not started (0) to Complete (3) to identify evidence and implementation gaps and suggest next steps. Results can be exported as CSV.
 """
 )
-# st.info("Use this to prioritise what to do next, align stakeholders, and shape the evidence + value plan early.")
 st.markdown("---")
+# st.info("Use this to prioritise what to do next, align stakeholders, and shape the evidence + value plan early.")
 left, right = st.columns([1.6, 1.0])
 
 with left:
@@ -314,7 +314,7 @@ st.markdown("---")
 st.subheader("Data review & export")
 
 rows = []
-ts = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
+ts = datetime.utcnow().strftime("%Y-%m-%d %H:%M:")
 for key in TASK_ORDER:
     rows.append(
         {
