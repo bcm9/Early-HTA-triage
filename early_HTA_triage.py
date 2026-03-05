@@ -63,7 +63,6 @@ TASKS = {
     "Performance data": "Do you have early data showing it works as intended (signal/pilot/usability/performance)?",
     "RCT/RWE evidence": "Do you have clinical evidence (trial, service evaluation, real-world outcomes) aligned to the claim?",
     "Early HE modelling": "Have you estimated potential economic value (simple scenario/threshold, cost offsets, budget impact)?",
-    "Requirements for future HEE": "Would it require new workforce skills/training/service redesign (and have you scoped this)?",
     "Uncertainty clarity": "What are the biggest uncertainties (clinical, operational, economic), and which one matters most?",
 }
 
