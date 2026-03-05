@@ -374,6 +374,12 @@ These datasets provide **average NHS costs for healthcare services**, commonly u
 
 with st.expander("Further support for innovators"):
     st.markdown("""
+
+**Review relevant clinical guidelines for your technology area.**  
+These often clarify the current standard of care, care pathways, and meaningful outcomes for evaluation.
+
+Examples of innovation support programmes:
+
 - NHS Innovation Service  
 - NIHR research funding and evidence programmes  
 - DigitalHealth.London guidance for innovators  
