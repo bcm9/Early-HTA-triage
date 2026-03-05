@@ -314,7 +314,7 @@ st.markdown("---")
 st.subheader("Data review & export")
 
 rows = []
-ts = datetime.utcnow().strftime("%Y-%m-%d %H:%M:")
+ts = datetime.utcnow().strftime("%Y-%m-%d %H:%M")
 for key in TASK_ORDER:
     rows.append(
         {
@@ -322,11 +322,11 @@ for key in TASK_ORDER:
             "Venture": venture_name,
             "Team": team_name,
             "Contact": contact,
-            "Device_type": device_type,
-            "Workstream_key": key,
+            "Device type": device_type,
+            "Workstream": key,
             "Workstream_label": TASK_DISPLAY[key],
             "Question": TASKS[key],
-            "Status_score_0_3": task_scores.get(key, 0),
+            "Score": task_scores.get(key, 0),
             "Weight": weights.get(key, 1.0),
         }
     )
