@@ -305,7 +305,7 @@ with c2:
     st.subheader("Bar")
     make_bar(task_scores)
 with c3:
-    st.subheader("Next steps (triage)")
+    st.subheader("Next steps")
     steps = top_next_steps(task_scores, weights, n=4)
     for s in steps:
         st.write(f"• {s}")
