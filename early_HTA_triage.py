@@ -355,6 +355,7 @@ with st.expander("Frameworks and guidance"):
 - [NICE Evidence Standards Framework for Digital Health Technologies](https://www.nice.org.uk/what-nice-does/digital-health/evidence-standards-framework-esf-for-digital-health-technologies)  
 - [NICE Technology Appraisal guidance](https://www.nice.org.uk/what-nice-does/our-guidance/about-technology-appraisal-guidance)  
 - [NICE Real-World Evidence Framework](https://www.nice.org.uk/corporate/ecd9)  
+- [ISPOR Health Economic Evaluation Guidelines](https://www.ispor.org/heor-resources/good-practices)
 These help determine what **level of clinical and economic evidence** is expected before NHS adoption.
 """)
 
@@ -364,8 +365,10 @@ with st.expander("Economic data and costing"):
 
 - [NHS National Cost Collection](https://www.england.nhs.uk/costing-in-the-nhs/national-cost-collection/)  
 - [NHS Reference Costs dataset](https://www.gov.uk/government/collections/nhs-reference-costs)
-
 These datasets provide **average NHS costs for healthcare services**, commonly used in health-economic models.
+- Published cost studies in peer-reviewed literature
+- [OECD health system data](https://www.oecd.org/en/data/datasets/oecd-health-statistics.html)
+- [Cost-effectiveness app](https://cost-effectiveness-analysis.streamlit.app/)
 """)
 
 with st.expander("Further support for innovators"):
