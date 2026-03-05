@@ -1,5 +1,5 @@
-# lihe_hta_triage_app.py
-# LIHE Early HTA Triage (Streamlit) — working version with keyed tasks + uncertainty
+# early_HTA_triage.py
+# Early HTA Triage (Streamlit) working version with keyed tasks + uncertainty
 # Run:
 #   pip install streamlit pandas numpy matplotlib seaborn
 #   streamlit run lihe_hta_triage_app.py
@@ -181,7 +181,7 @@ def make_radar(task_scores):
     ax.grid(True, linestyle="--", linewidth=0.7, alpha=0.6)
     ax.set_theta_offset(np.pi / 2)
     ax.set_theta_direction(-1)
-    ax.set_title("Early HTA Triage Radar (0–3)", fontsize=13, weight="semibold", pad=18)
+    ax.set_title("Early HTA Triage Radar", fontsize=13, weight="semibold", pad=18)
 
     st.pyplot(fig, use_container_width=False)
 
@@ -254,6 +254,7 @@ st.sidebar.caption("Tip: quick honesty — this is triage, not an audit.")
 # Main
 # -----------------------------
 st.title(APP_NAME)
+st.caption("A lightweight framework for identifying evidence and implementation gaps in early health technologies.")
 
 st.markdown(
     """
