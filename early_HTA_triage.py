@@ -256,11 +256,10 @@ This is an **early HTA triage** check for med-tech, diagnostics, service innovat
 - Clarify the value proposition and decision context for health systems  
 - Prioritise the next piece of evidence needed to reduce uncertainty
 
-Score the 10 workstreams from Not started (0) to Complete (3). The tool identifies evidence and implementation gaps and suggests priority next steps. Results can be exported as CSV.
+Score the 10 workstreams from Not started (0) to Complete (3) to identify evidence and implementation gaps and suggest next steps. Results can be exported as CSV.
 """
 )
 # st.info("Use this to prioritise what to do next, align stakeholders, and shape the evidence + value plan early.")
-
 st.markdown("---")
 left, right = st.columns([1.6, 1.0])
 
