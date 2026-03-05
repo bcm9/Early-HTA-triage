@@ -256,16 +256,16 @@ This is an **early HTA triage** check for med-tech, diagnostics, service innovat
 - Clarify the value proposition and decision context for health systems  
 - Prioritise the next piece of evidence needed to reduce uncertainty
 
-Rate workstreams from not started (0) to complete (3). Results can be exported as csv.
+Score the 10 workstreams from Not started (0) to Complete (3). The tool identifies evidence and implementation gaps and suggests priority next steps. Results can be exported as CSV.
 """
 )
-st.info("Use this to prioritise what to do next, align stakeholders, and shape the evidence + value plan early.")
+# st.info("Use this to prioritise what to do next, align stakeholders, and shape the evidence + value plan early.")
 
 st.markdown("---")
 left, right = st.columns([1.6, 1.0])
 
 with left:
-    st.subheader("Workstream status rating")
+    st.subheader("Workstream rating")
     task_scores = {}
     for i, key in enumerate(TASK_ORDER, start=1):
         question = TASKS[key]
@@ -357,7 +357,7 @@ with st.expander("Frameworks and guidance"):
 - [NICE Real-World Evidence Framework](https://www.nice.org.uk/corporate/ecd9)  
 - [ISPOR Health Economic Evaluation Guidelines](https://www.ispor.org/heor-resources/good-practices)
 
-These help determine what **level of clinical and economic evidence** is expected before NHS adoption.
+These help determine what **level of clinical and economic evidence** is expected before adoption.
 """)
 
 with st.expander("Economic data and costing"):
