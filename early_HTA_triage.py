@@ -113,7 +113,7 @@ def color_for_pct(p):
 
 # Recommendations keyed to task keys (so you never get the generic "Advance..." unless you add new keys)
 RECOMMENDATIONS = {
-    "PICO": "Lock a crisp decision problem: population, setting, comparator, and the specific claim you want to enable.",
+    "PICO": "Lock a decision problem: population, setting, comparator, and the specific claim you want to enable.",
     "Decision point": "Name the exact decision point you change (triage/diagnosis/treatment/monitoring) and who makes that decision.",
     "Comparator": "Clarify what happens today in real practice (not ideal practice) and what you're replacing/augmenting.",
     "Clinical pathway mapping": "Map the real pathway: steps, decision points, who acts, bottlenecks, and where implementation could fail.",
@@ -121,7 +121,7 @@ RECOMMENDATIONS = {
     "Value proposition": "Turn the pitch into measurable value: health gain, cost offsets, and/or system capacity (time, throughput, waiting lists).",
     "Performance data": "Assemble early signal evidence aligned to intended use (performance/usability/reliability/safety) with clear endpoints.",
     "RCT/RWE evidence": "Define a minimum viable evidence path (pilot/service eval → RWE → comparative study/RCT only if needed).",
-    "Early HE modelling": "Build a simple proto-model: key cost drivers, effect size thresholds that would matter, and plausible scenarios.",
+    "Early HE modelling": "Build a simple proto-model: what are the costs, drivers, effect size thresholds that would matter, and plausible scenarios.",
     "Uncertainty clarity": "List the top uncertainties, pick the single biggest one, and define the cheapest evidence that would reduce it.",
 }
 
