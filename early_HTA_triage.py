@@ -119,10 +119,10 @@ RECOMMENDATIONS = {
     "Clinical pathway mapping": "Map the real pathway: steps, decision points, who acts, bottlenecks, and where implementation could fail.",
     "Stakeholder mapping": "Identify decision-makers and implementers; capture incentives, blockers, and what evidence each stakeholder needs.",
     "Value proposition": "Turn the pitch into measurable value: health gain, cost offsets, and/or system capacity (time, throughput, waiting lists).",
-    "Performance data": "Assemble early signal evidence aligned to intended use (performance/usability/reliability/safety) with clear endpoints.",
+    "Performance data": "Assemble early evidence aligned to intended use (performance/usability/reliability/safety) with clear endpoints.",
     "RCT/RWE evidence": "Define a minimum viable evidence path (pilot/service eval → RWE → comparative study/RCT only if needed).",
-    "Early HE modelling": "Build a simple proto-model: what are the costs, drivers, effect size thresholds that would matter, and plausible scenarios.",
-    "Uncertainty clarity": "List the top uncertainties, pick the single biggest one, and define the cheapest evidence that would reduce it.",
+    "Early HE modelling": "Build a simple proto-model: costs, drivers, effect size thresholds that would matter, and plausible scenarios.",
+    "Uncertainty clarity": "List uncertainties, pick the single biggest one, and define the cheapest evidence that would reduce it.",
 }
 
 def top_next_steps(task_scores, weights, n=4):
@@ -345,7 +345,7 @@ st.download_button(
 )
 
 st.markdown("---")
-st.subheader("HTA resources")
+st.subheader("Further reading and resources")
 
 with st.expander("Frameworks and guidance"):
     st.markdown("""
