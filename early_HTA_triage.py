@@ -47,7 +47,7 @@ DEVICE_TYPES = ["Hardware", "Software", "AIaMD", "Other"]
 STATUS_LEVELS = [
     (0, "Not started"),
     (1, "In progress"),
-    (2, "Draft / partial"),
+    (2, "Draft, partial"),
     (3, "Complete & evidenced"),
 ]
 STATUS_LABELS = [f"{n} : {t}" for n, t in STATUS_LEVELS]
