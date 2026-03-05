@@ -63,7 +63,6 @@ TASKS = {
     "Performance data": "Do you have early data showing it works as intended (signal/pilot/usability/performance)?",
     "RCT/RWE evidence": "Do you have clinical evidence (trial, service evaluation, real-world outcomes) aligned to the claim?",
     "Early HE modelling": "Have you estimated potential economic value (simple scenario/threshold, cost offsets, budget impact)?",
-    "PPI": "Have patients/public been involved in shaping outcomes, acceptability, equity, or implementation?",
     "Requirements for future HEE": "Would it require new workforce skills/training/service redesign (and have you scoped this)?",
     "Uncertainty clarity": "What are the biggest uncertainties (clinical, operational, economic), and which one matters most?",
 }
@@ -79,8 +78,6 @@ TASK_DISPLAY = {
     "Performance data": "Early data",
     "RCT/RWE evidence": "Evidence",
     "Early HE modelling": "Economics",
-    "PPI": "PPI",
-    "Requirements for future HEE": "Workforce",
     "Uncertainty clarity": "Uncertainty",
 }
 
@@ -90,16 +87,14 @@ TASK_ORDER = list(TASKS.keys())
 # Optional lightweight weights (keyed to TASK_ORDER)
 DEFAULT_WEIGHTS = {
     "PICO": 1.3,
-    "Decision point": 1.2,
-    "Comparator": 1.1,
-    "Clinical pathway mapping": 1.3,
-    "Stakeholder mapping": 1.0,
-    "Value proposition": 1.2,
+    "Decision point": 1.3,
+    "Comparator": 1.0,
+    "Clinical pathway mapping": 1.4,
+    "Stakeholder mapping": 0.9,
+    "Value proposition": 1.3,
     "Performance data": 1.1,
-    "RCT/RWE evidence": 0.9,
+    "RCT/RWE evidence": 1.1,
     "Early HE modelling": 1.2,
-    "PPI": 1.0,
-    "Requirements for future HEE": 0.8,
     "Uncertainty clarity": 1.2,
 }
 
@@ -121,15 +116,13 @@ def color_for_pct(p):
 RECOMMENDATIONS = {
     "PICO": "Lock a crisp decision problem: population, setting, comparator, and the specific claim you want to enable.",
     "Decision point": "Name the exact decision point you change (triage/diagnosis/treatment/monitoring) and who makes that decision.",
-    "Comparator": "Clarify what happens today in real practice (not ideal practice) and what you’re replacing/augmenting.",
+    "Comparator": "Clarify what happens today in real practice (not ideal practice) and what you're replacing/augmenting.",
     "Clinical pathway mapping": "Map the real pathway: steps, decision points, who acts, bottlenecks, and where implementation could fail.",
     "Stakeholder mapping": "Identify decision-makers and implementers; capture incentives, blockers, and what evidence each stakeholder needs.",
     "Value proposition": "Turn the pitch into measurable value: health gain, cost offsets, and/or system capacity (time, throughput, waiting lists).",
     "Performance data": "Assemble early signal evidence aligned to intended use (performance/usability/reliability/safety) with clear endpoints.",
     "RCT/RWE evidence": "Define a minimum viable evidence path (pilot/service eval → RWE → comparative study/RCT only if needed).",
     "Early HE modelling": "Build a simple proto-model: key cost drivers, effect size thresholds that would matter, and plausible scenarios.",
-    "PPI": "Do targeted PPI to refine outcomes that matter, acceptability, equity, and realistic implementation assumptions.",
-    "Requirements for future HEE": "Scope workforce/service implications: training needs, who does the work, and whether workload shifts are acceptable.",
     "Uncertainty clarity": "List the top uncertainties, pick the single biggest one, and define the cheapest evidence that would reduce it.",
 }
 
@@ -215,7 +208,7 @@ def make_bar(task_scores):
 # -----------------------------
 # Sidebar
 # -----------------------------
-st.sidebar.write("Enter info and complete the triage")
+st.sidebar.write("Enter info (optional)")
 
 with st.sidebar.expander("Venture info", expanded=True):
     venture_name = st.text_input("Venture", value="Untitled venture")
@@ -341,7 +334,10 @@ for key in TASK_ORDER:
     )
 
 df = pd.DataFrame(rows)
-st.dataframe(df, use_container_width=True, hide_index=True)
+
+df_no_label = df.drop(columns=["Workstream_label","Weight"])
+
+st.dataframe(df_no_label, use_container_width=True, hide_index=True)
 
 st.download_button(
     "Download CSV",
