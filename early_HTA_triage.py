@@ -58,7 +58,7 @@ TASKS = {
     "Decision point": "What decision in the care pathway would it influence (e.g. triage, diagnosis, treatment, monitoring)?",
     "Comparator": "What is the current comparator / standard of care?",
     "Clinical pathway mapping": "Where exactly does it fit in the patient care pathway (who does what, when)?",
-    "Stakeholder mapping": "Who must adopt/approve it (decision-makers + implementers)?",
+    "Stakeholder mapping": "Who must adopt/approve it (clinicians, providers, payers, patients)?",
     "Value proposition": "What value does it provide (clinical, operational, economic) and for whom?",
     "Performance data": "Do you have early data showing it works as intended (signal/pilot/usability/performance)?",
     "RCT/RWE evidence": "Do you have clinical evidence (trial, service evaluation, real-world outcomes) aligned to the claim?",
@@ -246,7 +246,7 @@ st.sidebar.caption("Tip: quick honesty — this is triage, not an audit.")
 # Main
 # -----------------------------
 st.title(APP_NAME)
-st.caption("A lightweight framework for identifying evidence and implementation gaps in early health technologies")
+st.caption("A 5-minute structured check of problem definition, pathway fit, value logic, evidence, and uncertainty.")
 
 st.markdown(
     """
