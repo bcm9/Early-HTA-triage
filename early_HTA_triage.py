@@ -264,7 +264,7 @@ st.markdown("---")
 left, right = st.columns([1.6, 1.0])
 
 with left:
-    st.subheader("Workstream rating")
+    st.subheader("Rate key workstreams")
     task_scores = {}
     for i, key in enumerate(TASK_ORDER, start=1):
         question = TASKS[key]
@@ -278,7 +278,7 @@ with left:
         task_scores[key] = int(choice.split(" ")[0])
 
 with right:
-    st.subheader("Overall score")
+    st.subheader("Your overall score")
     st.write(f"**Venture:** {venture_name}")
     st.write(f"**Device type:** {device_type}")
 
@@ -293,7 +293,7 @@ with right:
 
     st.metric("Weighted readiness", f"{overall_pct}%")
     pill(label_for_pct(overall_pct), color_for_pct(overall_pct))
-    st.caption("Combines all workstreams (0–3) with optional weights.")
+    # st.caption("Combines all workstreams with optional weights")
 
 st.markdown("---")
 
