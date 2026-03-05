@@ -26,8 +26,6 @@ The app guides users through key early HTA workstreams (scored on a **0–3 matu
 - Early performance / feasibility signal
 - Clinical evidence maturity (trial / service evaluation / RWE)
 - Early economic logic (scenario / threshold thinking)
-- Patient and public involvement (PPI)
-- Workforce and implementation considerations
 - Key uncertainties and evidence priorities
 
 Outputs include:
