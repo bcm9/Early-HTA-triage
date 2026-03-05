@@ -264,7 +264,7 @@ st.markdown("---")
 left, right = st.columns([1.6, 1.0])
 
 with left:
-    st.subheader("Rate key workstreams")
+    st.subheader("Rate workstreams")
     task_scores = {}
     for i, key in enumerate(TASK_ORDER, start=1):
         question = TASKS[key]
