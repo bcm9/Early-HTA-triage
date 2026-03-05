@@ -246,7 +246,7 @@ st.sidebar.caption("Tip: quick honesty — this is triage, not an audit.")
 # Main
 # -----------------------------
 st.title(APP_NAME)
-st.caption("A lightweight framework for identifying evidence and implementation gaps in early health technologies.")
+st.caption("A lightweight framework for identifying evidence and implementation gaps in early health technologies")
 
 st.markdown(
     """
@@ -256,7 +256,7 @@ This is an **early HTA triage** check for med-tech, diagnostics, service innovat
 - Clarify the value proposition and decision context for health systems  
 - Prioritise the next piece of evidence needed to reduce uncertainty
 
-Score the 10 workstreams from Not started (0) to Complete (3) to identify evidence and implementation gaps and suggest next steps. Results can be exported as CSV.
+Rate the 10 workstreams from Not started (0) to Complete (3) to identify evidence and implementation gaps and suggest next steps. Results can be exported as CSV.
 """
 )
 st.markdown("---")
