@@ -345,7 +345,7 @@ st.download_button(
 )
 
 st.markdown("---")
-st.subheader("Evidence & HTA resources")
+st.subheader("HTA resources")
 
 with st.expander("Frameworks and guidance"):
     st.markdown("""
@@ -393,4 +393,4 @@ st.markdown("---")
 st.markdown("""  
 **Created by Ben Caswell-Midwinter | © 2026 | [LinkedIn](https://www.linkedin.com/in/ben-caswell-midwinter-7a0701107/)**
 """)
-st.caption("Indicative triage only — not a formal HTA, regulatory, or clinical safety assessment.")
+st.caption("Indicative triage only: not a formal HTA, regulatory, or clinical safety assessment.")
