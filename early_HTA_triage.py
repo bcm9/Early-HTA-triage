@@ -194,7 +194,7 @@ def make_bar(task_scores):
         ax.text(b.get_x() + b.get_width() / 2, v + 0.06, f"{v}", ha="center", va="bottom", fontsize=9)
 
     ax.set_ylim(0, 3.4)
-    ax.set_ylabel("Status (0–3)")
+    ax.set_ylabel("Rating")
     ax.set_title("Task Status by Workstream", fontsize=13, weight="semibold")
     plt.xticks(rotation=20, ha="right", fontsize=9)
 
