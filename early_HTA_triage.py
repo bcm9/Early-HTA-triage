@@ -309,8 +309,6 @@ st.sidebar.caption("Tip: quick honesty — this is triage, not an audit.")
 # Main
 # -----------------------------
 st.title(APP_NAME)
-st.caption("A 5-minute structured check of decision context, pathway fit, value logic, evidence, and uncertainty.")
-
 st.markdown(
 """
 A **stage-weighted early HTA triage** for med-tech, diagnostics, service innovations, and digital health ventures.
@@ -333,6 +331,7 @@ left, right = st.columns([1.7, 1.7])
 
 with left:
     st.subheader("Rate workstreams")
+    st.caption("A 5-minute structured check of decision context, pathway fit, value logic, evidence, and uncertainty.")
     task_scores = {}
     for i, key in enumerate(TASK_ORDER, start=1):
         question = TASKS[key]
