@@ -297,7 +297,7 @@ with st.sidebar.expander("Weights", expanded=False):
 
         weights[key] = st.slider(
             TASK_DISPLAY[key],
-            min_value=0.5,
+            min_value=0.4,
             max_value=2.0,
             step=0.1,
             key=slider_key,
