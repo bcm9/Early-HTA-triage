@@ -309,11 +309,11 @@ st.sidebar.caption("Tip: quick honesty — this is triage, not an audit.")
 # Main
 # -----------------------------
 st.title(APP_NAME)
-st.caption("A 5-minute structured check of problem definition, pathway fit, value logic, evidence, and uncertainty.")
+st.caption("A 5-minute structured check of decision context, pathway fit, value logic, evidence, and uncertainty.")
 
 st.markdown(
 """
-This tool provides a **rapid early HTA triage** for med-tech, diagnostics, service innovations, and digital health ventures.
+This tool provides a **stage-weighted early HTA triage** for med-tech, diagnostics, service innovations, and digital health ventures.
 
 It helps teams to:
 
