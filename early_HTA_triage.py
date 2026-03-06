@@ -207,39 +207,112 @@ def make_bar(task_scores):
 # -----------------------------
 # Sidebar
 # -----------------------------
-st.sidebar.write("Enter info (optional)")
+st.sidebar.write("Enter stage and info")
 
-with st.sidebar.expander("Venture info", expanded=True):
+STAGES = [
+    "1. Concept",
+    "2. Validation",
+    "3. Adoption",
+]
+
+programme = st.sidebar.selectbox(
+    "Programme stage for weighting",
+    STAGES,
+    help="Select stage of venture to adjust weights"
+)
+
+STAGE_WEIGHTS = {
+
+    "1. Concept": {
+        "PICO": 1.5,
+        "Decision point": 1.4,
+        "Comparator": 1.2,
+        "Clinical pathway mapping": 1.3,
+        "Stakeholder mapping": 1.2,
+        "Value proposition": 1.3,
+        "Performance data": 1.0,
+        "RCT/RWE evidence": 0.5,
+        "Early HE modelling": 0.6,
+        "Uncertainty clarity": 1.2,
+    },
+
+    "2. Validation": {
+        "PICO": 1.2,
+        "Decision point": 1.2,
+        "Comparator": 1.1,
+        "Clinical pathway mapping": 1.2,
+        "Stakeholder mapping": 1.1,
+        "Value proposition": 1.2,
+        "Performance data": 1.3,
+        "RCT/RWE evidence": 1.2,
+        "Early HE modelling": 1.1,
+        "Uncertainty clarity": 1.1,
+    },
+
+    "3. Adoption": {
+        "PICO": 1.0,
+        "Decision point": 1.2,
+        "Comparator": 1.1,
+        "Clinical pathway mapping": 1.2,
+        "Stakeholder mapping": 1.3,
+        "Value proposition": 1.3,
+        "Performance data": 1.2,
+        "RCT/RWE evidence": 1.4,
+        "Early HE modelling": 1.4,
+        "Uncertainty clarity": 1.1,
+    },
+}
+
+with st.sidebar.expander("Venture info (optional)", expanded=True):
     venture_name = st.text_input("Venture", value="Untitled venture")
     team_name = st.text_input("Team / programme", value="(optional)")
     contact = st.text_input("Contact (email or name)", value="(optional)")
 
-with st.sidebar.expander("Device type", expanded=True):
+with st.sidebar.expander("Device type (optional)", expanded=True):
     device_type = st.selectbox("Device type", DEVICE_TYPES, index=1)
 
-with st.sidebar.expander("Scoring key", expanded=False):
-    st.markdown(
-        """
-**0** Not started  
-**1** In progress  
-**2** Draft / partial  
-**3** Complete & evidenced
-"""
-    )
+# with st.sidebar.expander("Scoring key", expanded=False):
+#     st.markdown(
+#         """
+# **0** Not started  
+# **1** In progress  
+# **2** Draft / partial  
+# **3** Complete & evidenced
+# """
+#     )
 
-with st.sidebar.expander("Optional weights", expanded=False):
-    st.caption("Use to emphasise certain workstreams for triage. Defaults are sensible for early HTA.")
+# programme preset
+preset_weights = STAGE_WEIGHTS[programme]
+
+# remember previous programme
+if "last_programme" not in st.session_state:
+    st.session_state["last_programme"] = programme
+
+# if programme changed, reset slider values to the new preset
+if st.session_state["last_programme"] != programme:
+    for key in TASK_ORDER:
+        st.session_state[f"w-{key}"] = float(preset_weights.get(key, 1.0))
+    st.session_state["last_programme"] = programme
+
+with st.sidebar.expander("Weights", expanded=False):
+    st.caption("Weighting automatically adjusted based on technology maturity")
+
     weights = {}
     for key in TASK_ORDER:
+        slider_key = f"w-{key}"
+
+        # first load only
+        if slider_key not in st.session_state:
+            st.session_state[slider_key] = float(preset_weights.get(key, 1.0))
+
         weights[key] = st.slider(
             TASK_DISPLAY[key],
             min_value=0.5,
             max_value=2.0,
-            value=float(DEFAULT_WEIGHTS.get(key, 1.0)),
             step=0.1,
-            key=f"w-{key}",
+            key=slider_key,
+            disabled=True
         )
-
 st.sidebar.caption("Tip: quick honesty — this is triage, not an audit.")
 
 # -----------------------------
@@ -256,7 +329,7 @@ This is an **early HTA triage** check for med-tech, diagnostics, service innovat
 - Clarify the value proposition and decision context for health systems  
 - Prioritise the next piece of evidence needed to reduce uncertainty
 
-Rate the 10 workstreams to identify evidence and implementation gaps and suggest next steps. Results can be exported as CSV.
+Select the stage of your technology in the sidebar, then rate the 10 workstreams to identify evidence and implementation gaps and suggest next steps. Results can be exported as CSV.
 """
 )
 st.markdown("---")
