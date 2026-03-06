@@ -309,10 +309,9 @@ st.sidebar.caption("Tip: quick honesty — this is triage, not an audit.")
 # Main
 # -----------------------------
 st.title(APP_NAME)
+st.subheader("A **stage-weighted early HTA triage** for med-tech, diagnostics, service innovations, and digital health ventures")
 st.markdown(
 """
-A **stage-weighted early HTA triage** for med-tech, diagnostics, service innovations, and digital health ventures.
-
 It helps teams to:
 
 - Identify evidence, pathway, and implementation gaps early  
