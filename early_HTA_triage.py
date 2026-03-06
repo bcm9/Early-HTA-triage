@@ -322,16 +322,22 @@ st.title(APP_NAME)
 st.caption("A 5-minute structured check of problem definition, pathway fit, value logic, evidence, and uncertainty.")
 
 st.markdown(
-    """
-This is an **early HTA triage** check for med-tech, diagnostics, service innovations, and digital health ventures. This helps teams to:
+"""
+This tool provides a **rapid early HTA triage** for med-tech, diagnostics, service innovations, and digital health ventures.
+
+It helps teams to:
 
 - Identify evidence, pathway, and implementation gaps early  
-- Clarify the value proposition and decision context for health systems  
-- Prioritise the next piece of evidence needed to reduce uncertainty
+- Clarify the clinical decision context and value proposition for health systems  
+- Prioritise the next evidence needed to reduce key uncertainties
 
-Select the stage of your technology in the sidebar, then rate the 10 workstreams to identify evidence and implementation gaps and suggest next steps. Results can be exported as CSV.
+Select the **stage of your technology** in the sidebar, then rate the 10 workstreams.  
+The tool highlights gaps in evidence and implementation readiness and suggests next steps.
+
+Results can be exported as CSV.
 """
 )
+
 st.markdown("---")
 # st.info("Use this to prioritise what to do next, align stakeholders, and shape the evidence + value plan early.")
 left, right = st.columns([1.6, 1.0])
