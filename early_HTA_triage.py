@@ -227,13 +227,13 @@ STAGE_WEIGHTS = {
         "PICO": 1.5,
         "Decision point": 1.4,
         "Comparator": 1.2,
-        "Clinical pathway mapping": 1.3,
+        "Clinical pathway mapping": 1.4,
         "Stakeholder mapping": 1.2,
         "Value proposition": 1.3,
-        "Performance data": 1.0,
-        "RCT/RWE evidence": 0.5,
+        "Performance data": 0.9,
+        "RCT/RWE evidence": 0.4,
         "Early HE modelling": 0.6,
-        "Uncertainty clarity": 1.2,
+        "Uncertainty clarity": 1.3,
     },
 
     "2. Validation": {
@@ -246,19 +246,19 @@ STAGE_WEIGHTS = {
         "Performance data": 1.3,
         "RCT/RWE evidence": 1.2,
         "Early HE modelling": 1.1,
-        "Uncertainty clarity": 1.1,
+        "Uncertainty clarity": 1.2,
     },
 
     "3. Adoption": {
         "PICO": 1.0,
         "Decision point": 1.2,
-        "Comparator": 1.1,
+        "Comparator": 1.2,
         "Clinical pathway mapping": 1.2,
         "Stakeholder mapping": 1.3,
         "Value proposition": 1.3,
         "Performance data": 1.2,
-        "RCT/RWE evidence": 1.4,
-        "Early HE modelling": 1.4,
+        "RCT/RWE evidence": 1.5,
+        "Early HE modelling": 1.5,
         "Uncertainty clarity": 1.1,
     },
 }
@@ -313,7 +313,7 @@ st.caption("A 5-minute structured check of decision context, pathway fit, value 
 
 st.markdown(
 """
-This tool provides a **stage-weighted early HTA triage** for med-tech, diagnostics, service innovations, and digital health ventures.
+A **stage-weighted early HTA triage** for med-tech, diagnostics, service innovations, and digital health ventures.
 
 It helps teams to:
 
