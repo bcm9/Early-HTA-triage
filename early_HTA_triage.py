@@ -99,10 +99,10 @@ DEFAULT_WEIGHTS = {
 
 def label_for_pct(p):
     if p < 40:
-        return "Early"
+        return "Developing"
     if p < 70:
-        return "Progressing"
-    return "Strong"
+        return "Emerging"
+    return "Advanced"
 
 def color_for_pct(p):
     if p < 40:
@@ -113,16 +113,16 @@ def color_for_pct(p):
 
 # Recommendations keyed to task keys (so you never get the generic "Advance..." unless you add new keys)
 RECOMMENDATIONS = {
-    "PICO": "Lock a decision problem: population, setting, comparator, and the specific claim you want to enable.",
-    "Decision point": "Name the exact decision point you change (triage/diagnosis/treatment/monitoring) and who makes that decision.",
+    "PICO": "Define the decision problem: population, setting, comparator, and the specific outcomes to measure.",
+    "Decision point": "Name the exact decision point your technology changes (triage/diagnosis/treatment/monitoring) and who makes that decision.",
     "Comparator": "Clarify what happens today in real practice (not ideal practice) and what you're replacing/augmenting.",
-    "Clinical pathway mapping": "Map the real pathway: steps, decision points, who acts, bottlenecks, and where implementation could fail.",
+    "Clinical pathway mapping": "Map the real clinical pathway: steps, decision points, who acts, bottlenecks, and where implementation could fail.",
     "Stakeholder mapping": "Identify decision-makers and implementers; capture incentives, blockers, and what evidence each stakeholder needs.",
     "Value proposition": "Turn the pitch into measurable value: health gain, cost offsets, and/or system capacity (time, throughput, waiting lists).",
     "Performance data": "Assemble early evidence aligned to intended use (performance/usability/reliability/safety) with clear endpoints.",
     "RCT/RWE evidence": "Define a minimum viable evidence path (pilot/service eval → RWE → comparative study/RCT only if needed).",
     "Early HE modelling": "Build a simple proto-model: costs, drivers, effect size thresholds that would matter, and plausible scenarios.",
-    "Uncertainty clarity": "List uncertainties, pick the single biggest one, and define the cheapest evidence that would reduce it.",
+    "Uncertainty clarity": "List uncertainties, pick the biggest one, and define the cheapest evidence that would reduce it.",
 }
 
 def top_next_steps(task_scores, weights, n=4):
@@ -161,7 +161,7 @@ def make_radar(task_scores):
     color = sns.color_palette("crest", 1)[0]
 
     ax.plot(angles_plot, values_plot, color=color, linewidth=2.2)
-    ax.fill(angles_plot, values_plot, color=color, alpha=0.25)
+    ax.fill(angles_plot, values_plot, color=color, alpha=0.2)
 
     ax.set_yticks([0, 1, 2, 3])
     ax.set_yticklabels(["0", "1", "2", "3"], fontsize=9, color="gray")
@@ -173,41 +173,41 @@ def make_radar(task_scores):
     ax.grid(True, linestyle="--", linewidth=0.7, alpha=0.6)
     ax.set_theta_offset(np.pi / 2)
     ax.set_theta_direction(-1)
-    ax.set_title("Early HTA Triage Radar", fontsize=13, weight="semibold", pad=18)
+    # ax.set_title("Early HTA Triage Radar", fontsize=13, weight="semibold", pad=18)
 
     st.pyplot(fig, use_container_width=False)
 
-def make_bar(task_scores):
-    keys = TASK_ORDER
-    df = pd.DataFrame(
-        {
-            "Workstream": [TASK_DISPLAY[k] for k in keys],
-            "Score": [task_scores.get(k, 0) for k in keys],
-        }
-    )
+# def make_bar(task_scores):
+#     keys = TASK_ORDER
+#     df = pd.DataFrame(
+#         {
+#             "Workstream": [TASK_DISPLAY[k] for k in keys],
+#             "Score": [task_scores.get(k, 0) for k in keys],
+#         }
+#     )
 
-    fig, ax = plt.subplots(figsize=(8.8, 4.2))
-    palette = sns.color_palette("crest", len(df))
-    bars = ax.bar(df["Workstream"], df["Score"], color=palette, edgecolor="none")
+#     fig, ax = plt.subplots(figsize=(8.8, 4.2))
+#     palette = sns.color_palette("crest", len(df))
+#     bars = ax.bar(df["Workstream"], df["Score"], color=palette, edgecolor="none")
 
-    for b, v in zip(bars, df["Score"]):
-        ax.text(b.get_x() + b.get_width() / 2, v + 0.06, f"{v}", ha="center", va="bottom", fontsize=9)
+#     for b, v in zip(bars, df["Score"]):
+#         ax.text(b.get_x() + b.get_width() / 2, v + 0.06, f"{v}", ha="center", va="bottom", fontsize=9)
 
-    ax.set_ylim(0, 3.4)
-    ax.set_ylabel("Rating")
-    ax.set_title("Task Status by Workstream", fontsize=13, weight="semibold")
-    plt.xticks(rotation=20, ha="right", fontsize=9)
+#     ax.set_ylim(0, 3.4)
+#     ax.set_ylabel("Rating")
+#     ax.set_title("Task Status by Workstream", fontsize=13, weight="semibold")
+#     plt.xticks(rotation=20, ha="right", fontsize=9)
 
-    sns.despine(left=True, bottom=True)
-    ax.grid(True, axis="y", linestyle="--", linewidth=0.7, alpha=0.6)
-    ax.set_axisbelow(True)
+#     sns.despine(left=True, bottom=True)
+#     ax.grid(True, axis="y", linestyle="--", linewidth=0.7, alpha=0.6)
+#     ax.set_axisbelow(True)
 
-    st.pyplot(fig, use_container_width=True)
+#     st.pyplot(fig, use_container_width=True)
 
 # -----------------------------
 # Sidebar
 # -----------------------------
-st.sidebar.write("Enter stage and info")
+st.sidebar.write("**Enter stage and info**")
 
 STAGES = [
     "1. Concept",
@@ -271,16 +271,6 @@ with st.sidebar.expander("Venture info (optional)", expanded=True):
 with st.sidebar.expander("Device type (optional)", expanded=True):
     device_type = st.selectbox("Device type", DEVICE_TYPES, index=1)
 
-# with st.sidebar.expander("Scoring key", expanded=False):
-#     st.markdown(
-#         """
-# **0** Not started  
-# **1** In progress  
-# **2** Draft / partial  
-# **3** Complete & evidenced
-# """
-#     )
-
 # programme preset
 preset_weights = STAGE_WEIGHTS[programme]
 
@@ -339,7 +329,7 @@ Results can be exported as CSV.
 )
 st.markdown("---")
 # st.info("Use this to prioritise what to do next, align stakeholders, and shape the evidence + value plan early.")
-left, right = st.columns([1.6, 1.0])
+left, right = st.columns([1.7, 1.7])
 
 with left:
     st.subheader("Rate workstreams")
@@ -371,22 +361,13 @@ with right:
 
     st.metric("Weighted readiness", f"{overall_pct}%")
     pill(label_for_pct(overall_pct), color_for_pct(overall_pct))
-    # st.caption("Combines all workstreams with optional weights")
+    make_radar(task_scores)
 
 st.markdown("---")
-
-c1, c2, c3 = st.columns([1.2, 1.2, 1.1])
-with c1:
-    st.subheader("Radar")
-    make_radar(task_scores)
-with c2:
-    st.subheader("Bar")
-    make_bar(task_scores)
-with c3:
-    st.subheader("Next steps")
-    steps = top_next_steps(task_scores, weights, n=4)
-    for s in steps:
-        st.write(f"• {s}")
+st.subheader("Priority next steps")
+steps = top_next_steps(task_scores, weights, n=3)
+for s in steps:
+    st.write(f"• {s}")
 
 st.markdown("---")
 st.subheader("Data review & export")
@@ -475,6 +456,6 @@ Later stage: real-world outcomes and economic value
 
 st.markdown("---")
 st.markdown("""  
-**Created by Ben Caswell-Midwinter | © 2026 | [LinkedIn](https://www.linkedin.com/in/ben-caswell-midwinter-7a0701107/)**
+*Created by Ben Caswell-Midwinter | © 2026 | [LinkedIn](https://www.linkedin.com/in/ben-caswell-midwinter-7a0701107/)*
 """)
 st.caption("Indicative triage only: not a formal HTA, regulatory, or clinical safety assessment.")
