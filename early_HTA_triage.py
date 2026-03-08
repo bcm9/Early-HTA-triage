@@ -318,10 +318,7 @@ This triage helps teams to:
 - Clarify the clinical decision context and value proposition for health systems  
 - Prioritise the next evidence needed to reduce key uncertainties
 
-Select the **stage of your technology** in the sidebar, then rate the 10 workstreams.  
-The tool highlights gaps in evidence and implementation readiness and suggests next steps.
-
-Results can be exported as CSV.
+Select the **stage of your technology** in the sidebar, then rate the 10 workstreams. Results can be exported as CSV.
 """
 )
 st.markdown("---")
