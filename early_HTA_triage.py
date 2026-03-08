@@ -443,13 +443,13 @@ Examples of innovation support programmes:
 - NHS England AI Lab (for AI-based technologies)
 """)
 
-st.info("""
-Evidence should grow with the product lifecycle.
+# st.info("""
+# Evidence should grow with the product lifecycle.
 
-Early stage: feasibility data, pathway mapping, value hypothesis  
-Mid stage: clinical validation and comparative evidence  
-Later stage: real-world outcomes and economic value
-""")
+# Early stage: feasibility data, pathway mapping, value hypothesis  
+# Mid stage: clinical validation and comparative evidence  
+# Later stage: real-world outcomes and economic value
+# """)
 
 
 st.markdown("---")
